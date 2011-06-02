@@ -1,0 +1,19 @@
+{ "name" : "muchmala-scripts"
+, "version" : "0.0.1"
+, "description" : "CLI scripts for Muchmala"
+, "homepage" : "https://github.com/muchmala/muchmala-scripts"
+, "contributors" :
+   [ "Serge Borbit <serge.borbit@gmail.com>"
+   , "Taras Kunch <taras.kunch@gmail.com>"
+   , "George Miroshnykov <george.miroshnykov@gmail.com>"
+   ]
+, "repository":
+ { "type" : "git"
+ , "url" : "https://github.com/muchmala/muchmala-scripts.git"
+ }
+, "dependencies" :
+ { "muchmala-common" : "~0"
+ , "optimist" : "~0"
+ , "async" : "~0"
+ }
+}

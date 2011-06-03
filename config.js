@@ -13,9 +13,9 @@ config.storage = {
         location: __dirname + '/webroot'
     },
     s3: {
-        aws_key:    null,
-        aws_secret: null,
-        s3_bucket:  'static.dev.muchmala.com'
+        key:    null,
+        secret: null,
+        bucket: 'taras.muchmala.com'
     }
 };
 

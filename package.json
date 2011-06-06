@@ -7,6 +7,9 @@
    , "Taras Kunch <taras.kunch@gmail.com>"
    , "George Miroshnykov <george.miroshnykov@gmail.com>"
    ]
+, "bin":
+ { "create-puzzle" : "./lib/generator.js"
+ }
 , "repository":
  { "type" : "git"
  , "url" : "https://github.com/muchmala/muchmala-scripts.git"

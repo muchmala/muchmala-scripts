@@ -5,11 +5,11 @@ CLI scripts for muchmala.
 
 # Documentation
 
-## generate-puzzle
+## create-puzzle
 
 Generates puzzle and adds it to queue.
 
-    generate-puzzle [-n "Puzzle Name"] [-x <num>] [-p] [-v] <path/to/image>[ <path/to/image2>...]
+    create-puzzle [-n "Puzzle Name"] [-x <num>] [-p] [-v] <path/to/image>[ <path/to/image2>...]
 
     -n --name       Puzzle name. If not specified, file name will be used.
     -x --piecesize  Size of a puzzle element.
@@ -19,12 +19,17 @@ Generates puzzle and adds it to queue.
 
 # Installation
 
-1. Clone this project
+1. Install muchmala-scripts with npm globally
 
-        git clone https://github.com/muchmala/muchmala-scripts.git
+        [sudo] npm install muchmala-scripts --registry http://registry.npm.muchmala.com --global
 
-2. Install
+2. If you need to redefine default configuration run
 
-        cd muchmala-scripts
+    2.1. Generate local config
 
-        npm install --registry http://registry.npm.muchmala.com --global
+            node scripts/config-generator.js
+
+    2.2. Edit file `~/.muchmala_scripts_rc`
+
+            vim ~/.muchmala_scripts_rc
+

@@ -1,6 +1,8 @@
 var path = require('path');
 var config = exports;
 
+config.rcFile = process.env.HOME + '/.muchmala_scripts_rc';
+
 config.mongodb = {
     host:     '127.0.0.1',
     user:     'mongodb',
@@ -10,7 +12,7 @@ config.mongodb = {
 config.storage = {
     type: 'file',
     file: {
-        location: __dirname + '/webroot'
+        location: './webroot'
     },
     s3: {
         key:    null,
@@ -19,10 +21,8 @@ config.storage = {
     }
 };
 
-
-var localConfigPath = './config.local.js';
-if (path.existsSync(localConfigPath)) {
-    var localConfig = require(localConfigPath),
+if (path.existsSync(config.rcFile)) {
+    var localConfig = JSON.parse(require('fs').readFileSync(config.rcFile, 'utf8')),
         deepExtend = require('muchmala-common').misc.deepExtend;
 
     deepExtend(config, localConfig);

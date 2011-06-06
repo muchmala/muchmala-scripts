@@ -10,7 +10,7 @@
 , "bin":
  { "create-puzzle" : "./lib/generator.js"
  }
-, "repository":
+, "repository" :
  { "type" : "git"
  , "url" : "https://github.com/muchmala/muchmala-scripts.git"
  }

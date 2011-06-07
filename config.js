@@ -21,7 +21,15 @@ config.storage = {
     }
 };
 
-if (path.existsSync(config.rcFile)) {
+
+var localConfigPath = './config.local.js';
+if (path.existsSync(localConfigPath)) {
+    var localConfig = require(localConfigPath),
+        deepExtend = require('muchmala-common').misc.deepExtend;
+
+    deepExtend(config, localConfig);
+
+} else if (path.existsSync(config.rcFile)) {
     var localConfig = JSON.parse(require('fs').readFileSync(config.rcFile, 'utf8')),
         deepExtend = require('muchmala-common').misc.deepExtend;
 

@@ -1,5 +1,5 @@
 { "name" : "muchmala-scripts"
-, "version" : "0.0.3"
+, "version" : "0.0.4"
 , "description" : "CLI scripts for Muchmala"
 , "homepage" : "https://github.com/muchmala/muchmala-scripts"
 , "contributors" :

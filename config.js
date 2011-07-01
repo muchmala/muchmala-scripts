@@ -1,37 +1,19 @@
-var path = require('path');
 var config = exports;
 
-config.rcFile = process.env.HOME + '/.muchmala_scripts_rc';
-
 config.mongodb = {
-    host:     '127.0.0.1',
-    user:     'mongodb',
-    database: 'muchmala'
+    host:     process.env.MUCHMALA_MONGODB_HOST || '127.0.0.1',
+    user:     process.env.MUCHMALA_MONGODB_USER || 'mongodb',
+    database: process.env.MUCHMALA_MONGODB_DATABASE || 'muchmala'
 };
 
 config.storage = {
-    type: 'file',
+    type: process.env.MUCHMALA_STORAGE_TYPE || 'file',
     file: {
-        location: './webroot'
+        location: process.env.MUCHMALA_STORAGE_FILE_LOCATION || './webroot'
     },
     s3: {
-        key:    null,
-        secret: null,
-        bucket: 'taras.muchmala.com'
+        key:    process.env.MUCHMALA_STORAGE_S3_KEY || null,
+        secret: process.env.MUCHMALA_STORAGE_S3_SECRET || null,
+        bucket: process.env.MUCHMALA_STORAGE_S3_BUCKET || 'dev.muchmala.com'
     }
 };
-
-
-var localConfigPath = __dirname + '/config.local.js';
-if (path.existsSync(localConfigPath)) {
-    var localConfig = require(localConfigPath),
-        deepExtend = require('muchmala-common').misc.deepExtend;
-
-    deepExtend(config, localConfig);
-
-} else if (path.existsSync(config.rcFile)) {
-    var localConfig = JSON.parse(require('fs').readFileSync(config.rcFile, 'utf8')),
-        deepExtend = require('muchmala-common').misc.deepExtend;
-
-    deepExtend(config, localConfig);
-}
